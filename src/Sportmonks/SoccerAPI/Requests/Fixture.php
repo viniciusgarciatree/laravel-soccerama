@@ -47,4 +47,9 @@ class Fixture extends SoccerAPIClient {
         return $this->call('fixtures/multi/' . join(',', $array));
     }
 
+    public function getLastUpdated()
+    {
+        return $this->call('fixtures/updates');
+    }
+
 }
