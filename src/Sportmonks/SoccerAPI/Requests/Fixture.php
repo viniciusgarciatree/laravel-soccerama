@@ -22,6 +22,21 @@ class Fixture extends SoccerAPIClient {
         return $this->callData('fixtures/between/' . $fromDate . '/' .$toDate);
     }
 
+    public function betweenDatesTeamId($fromDate,$toDate, $temaId)
+    {
+        if($fromDate instanceof Carbon)
+        {
+            $fromDate = $fromDate->format('Y-m-d');
+        }
+
+        if($toDate instanceof Carbon)
+        {
+            $toDate = $toDate->format('Y-m-d');
+        }
+
+        return $this->callData('fixtures/between/' . $fromDate . '/' .$toDate . '/' . $temaId);
+    }
+
     public function byDate($date)
     {
         if($date instanceof Carbon)
@@ -47,6 +62,9 @@ class Fixture extends SoccerAPIClient {
         return $this->call('fixtures/multi/' . join(',', $array));
     }
 
+    /**
+     * Retorna os jogos que receberam atualização nas últimas 2hs
+     */
     public function getLastUpdated()
     {
         return $this->call('fixtures/updates');
