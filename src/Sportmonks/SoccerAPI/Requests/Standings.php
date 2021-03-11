@@ -16,4 +16,14 @@ class Standings extends SoccerAPIClient {
         return $this->callData('standings/season/live/' . $seasonId);
     }
 
+    public function seasonByRound($seasonId, $roundId)
+    {
+        return $this->callData('standings/season/live/' . $seasonId . '/round/' .  $roundId);
+    }
+
+    public function standingsCorrectionsBySeasonId($seasonId)
+    {
+        return $this->callData('corrections/season/' . $seasonId);
+    }
+
 }
